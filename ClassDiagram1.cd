@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PaintToolCs.ContourInteractionBroker">
+    <Position X="1.5" Y="5.75" Width="2" />
+    <AssociationLine Name="ViewModel" Type="PaintToolCs.ContourViewModel" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.875" Y="5.75" />
+        <Point X="2.875" Y="5.375" />
+        <Point X="3.812" Y="5.375" />
+        <Point X="3.812" Y="3.535" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="InteractionSource" Type="PaintToolCs.PaintToolInteractionSource">
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.277" Y="-1.065" Height="0.182" Width="1.635" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAEAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Brokers\ContourInteractionBroker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ViewModel" />
+      <Property Name="InteractionSource" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PaintToolCs.MainWindow">
+    <Position X="10.75" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQBAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaintToolCs.ContourPersistenceService">
+    <Position X="0.5" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\ContourPersistenceService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaintToolCs.ContourViewModel" BaseTypeListCollapsed="true">
+    <Position X="3" Y="0.5" Width="1.75" />
+    <AssociationLine Name="BaseImage" Type="PaintToolCs.ImageViewModel">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.018" Y="-0.298" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAiAQAAEAAAAgQAAQAAAA=</HashCode>
+      <FileName>ViewModels\ContourViewModel.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BaseImage" />
+      <Property Name="ContourGeometry" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PaintToolCs.ImageViewModel">
+    <Position X="0.5" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\ImageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PaintToolCs.ContourView">
+    <Position X="7.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAACAAAAAAAIAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Views\ContourView.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DisplayPathGeometry" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PaintToolCs.PaintToolInteractionSource">
+    <Position X="4.25" Y="4.75" Width="3" />
+    <AssociationLine Name="CurrentPathGeometry" Type="System.Windows.Media.PathGeometry">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.127" Y="0.285" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAgAAAgAALAAIBIwAAAAAIAABAIIAAAA=</HashCode>
+      <FileName>Views\PaintToolInteractionSource.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_currentSpot" />
+      <Field Name="_currentEllipse" />
+      <Property Name="CurrentPathGeometry" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PaintToolCs.UnitsValueConverter" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Views\UnitsValueConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="System.Windows.Media.PathGeometry" Collapsed="true">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Media.EllipseGeometry" Collapsed="true">
+    <Position X="8.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Shapes.Path" Collapsed="true">
+    <Position X="8.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

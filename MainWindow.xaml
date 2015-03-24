@@ -1,0 +1,53 @@
+﻿<Window x:Class="PaintToolCs.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:PaintToolCs"
+        Title="PaintToolMvvm" Height="350" Width="525" Background="DarkGray" 
+        MouseMove="Window_MouseMove">
+    <Window.Resources>
+        <ResourceDictionary>
+            <!-- this helps to display the pixel area -->
+            <my:UnitsValueConverter x:Key="pixelAreaConverter" Units="pixels" />
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Canvas Width="0" Height="0">
+
+            <!-- the underlay image showing a static CT image -->
+            <Image x:Name="underlay" Canvas.Left="-200" Canvas.Top="-150"               
+               Source="{Binding BaseImage.BackgroundLayer}" />
+
+            <!-- the contour view shows the current contour, based on the bound DisplayPathGeometry
+             (which it gets from the ContourViewModel.ContourGeometry property)
+             presumably this would be in the active layer in the actual IFW layeredview -->
+            <my:ContourView x:Name="contourView" 
+                        DisplayPathGeometry="{Binding ContourGeometry, Mode=TwoWay}"/>
+
+
+            <!-- PaintToolInteractionSource could need to share the canvas with ContourView, but
+             is independent of it (because other interactionsource tools could also operate on the contour)
+             Note, however, the PaintToolInteractionSource doesn't directly interact with the ContourView, but
+             rather both are bound to the same ContourGeometry property -->
+            <my:PaintToolInteractionSource x:Name="interactionSource"
+                                        />
+        </Canvas>
+
+        <!-- shows binding another viewmodel property, in this case4 the ContourArea property updates
+             as the paint tool expands / contracts the contour -->
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Height="36" Orientation="Horizontal" Background="Blue">
+            <TextBlock Foreground="White" Margin="5">Area:</TextBlock>
+            <TextBox Margin="5" Text="{Binding ContourArea, Mode=OneWay, 
+                Converter={StaticResource pixelAreaConverter}}" />
+        </StackPanel>
+
+        <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10" 
+                Click="SaveButton_Click">Save Contour</Button>
+
+        <!-- slider bound to the paint tool diameter property -->
+        <Slider HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" 
+                Value="{Binding ElementName=interactionSource, Path=Diameter}"
+                Minimum="5" Maximum="40"
+                Width="200" />
+    </Grid>
+</Window>
