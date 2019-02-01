@@ -7,12 +7,32 @@
     <ProjectGuid>{2E4D63E5-422A-4D13-A81A-AB44EFAF8FB6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PaintToolCs</RootNamespace>
-    <AssemblyName>PaintToolCs</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>PaintToolMvvm</RootNamespace>
+    <AssemblyName>PaintToolMvvm</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>ftp://web808.discountasp.net:21/myapp/ClientInstall/</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.d4r4k.net/myapp/ClientInstall/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>9</ApplicationRevision>
+    <ApplicationVersion>1.1.10.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +53,38 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>13A750968A9D717E05D565418489E8FFC1903585</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>PaintToolMvvm_1_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>Internet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>PaintToolMvvm_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Prism">
+      <HintPath>packages\Prism.Core.6.0.1\lib\net45\Prism.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,6 +112,9 @@
     </Compile>
     <Compile Include="Brokers\ContourInteractionBroker.cs" />
     <Compile Include="Services\ContourPersistenceService.cs" />
+    <Compile Include="Services\IContourPersistenceService.cs" />
+    <Compile Include="Services\IImagePersistenceService.cs" />
+    <Compile Include="Services\ImagePersistenceService.cs" />
     <Compile Include="Views\ContourView.cs" />
     <Compile Include="Views\UnitsValueConverter.cs" />
     <Compile Include="ViewModels\ContourViewModel.cs" />
@@ -92,6 +144,11 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PaintToolMvvm_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -102,7 +159,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\CT-Lung-Metastases_1.jpg" />
+    <Resource Include="Resources\CT_Lung_Metastases_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="PaintToolLib\PaintToolLib.csproj">
+      <Project>{6bc64ad2-b4d0-4e08-b4c7-4914feb8dee1}</Project>
+      <Name>PaintToolLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

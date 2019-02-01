@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace PaintToolCs
+namespace PaintToolMvvm
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -24,8 +12,9 @@ namespace PaintToolCs
         {
             InitializeComponent();
 
-            var persistService = new ContourPersistenceService();
-            _contourVm = new ContourViewModel(persistService);
+            var contourSvc = new ContourPersistenceService();
+            var imageSvc = new ImagePersistenceService();
+            _contourVm = new ContourViewModel(contourSvc, imageSvc);
             DataContext = _contourVm;
 
             var interactionBroker = new ContourInteractionBroker()
@@ -40,8 +29,8 @@ namespace PaintToolCs
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            // save the contour @ 2.0mm pixel spacing, shifted by 10.0mm
-            _contourVm.SaveContour(2.0, 10.0);
+            // save the contour
+            _contourVm.SaveContour();
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e)

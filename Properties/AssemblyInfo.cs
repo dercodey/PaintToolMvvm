@@ -15,6 +15,12 @@ using System.Windows;
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
+[assembly: InternalsVisibleTo("PaintToolMvvm.UnitTests, PublicKey=" +
+    "0024000004800000940000000602000000240000525341310004000001000100916627343337b9" +
+    "fda971d5c37dbd1359c1c48c871e20b52e3116f5c171d6642e6e67dada689864b164ae737b07a5" +
+    "252abf36bd165e5a1d6021db232a995a1c50daa3d1205e5e374a9e3b66965c63c15468032d0f5b" +
+    "d8b4410dcaebe2f0dc2de6ee98ee5166780ec7f3c6e1c3cbb01e67620dca10fcc585efcf7f7441" +
+    "0769b6b9")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace PaintToolCs
+namespace PaintToolMvvm
 {
     /// <summary>
     /// broker to set up the paint tool for contouring
@@ -52,7 +52,18 @@ namespace PaintToolCs
                     InteractionSource.SetBinding(
                         PaintToolInteractionSource.CurrentPathGeometryProperty,
                         binding);
+
+                    InteractionSource.MouseUp += InteractionSource_MouseUp;
                 }
+            }
+        }
+
+        private void InteractionSource_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (InteractionSource.IsEnabled)
+            {
+                // save contour on each mouse up
+                ViewModel.SaveContour();
             }
         }
     }

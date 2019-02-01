@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace PaintToolCs
+namespace PaintToolMvvm
 {
     /// <summary>
     /// value converter to convert with a units label

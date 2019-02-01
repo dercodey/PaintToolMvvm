@@ -1,30 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
+﻿using System.Windows.Media.Imaging;
 
-namespace PaintToolCs
+namespace PaintToolMvvm
 {
     /// <summary>
     /// represents the base image
     /// </summary>
     public class ImageViewModel
     {
+        IImagePersistenceService _imageSvc;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ips"></param>
+        public ImageViewModel(IImagePersistenceService ips)
+        {
+            _imageSvc = ips;
+        }
+
         /// <summary>
         /// creates a new ImageViewModel from a static resource
         /// </summary>
         /// <param name="resourceName"></param>
-        public static ImageViewModel CreateFromResource(string resourceName)
-        {
-            var fullResourceName = string.Format("pack://application:,,,/PaintToolCs;component/Resources/{0}", resourceName);
-            var bi = new BitmapImage(new Uri(fullResourceName, UriKind.Absolute));
-            return new ImageViewModel()
+        public static 
+            ImageViewModel 
+                CreateFromResource(IImagePersistenceService ips, string resourceName) =>
+
+            // create new image view model
+            new ImageViewModel(ips)
             {
-                BackgroundLayer = bi
+                BackgroundLayer = ips.LoadImage(resourceName)
             };
-        }
 
         /// <summary>
         /// expose it as a pseudo-background layer

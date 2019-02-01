@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 
-namespace PaintToolCs
+namespace PaintToolMvvm
 {
     /// <summary>
     /// represents an interaction source that manages a paint tool

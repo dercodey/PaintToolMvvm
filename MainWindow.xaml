@@ -1,7 +1,7 @@
-﻿<Window x:Class="PaintToolCs.MainWindow"
+﻿<Window x:Class="PaintToolMvvm.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:my="clr-namespace:PaintToolCs"
+        xmlns:my="clr-namespace:PaintToolMvvm"
         Title="PaintToolMvvm" Height="350" Width="525" Background="DarkGray" 
         MouseMove="Window_MouseMove">
     <Window.Resources>
